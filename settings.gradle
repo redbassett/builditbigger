@@ -1,1 +1,1 @@
-include ':app', ':jester'
+include ':app', ':javajester'
