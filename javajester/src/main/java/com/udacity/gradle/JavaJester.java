@@ -1,4 +1,4 @@
-package com.example;
+package com.udacity.gradle;
 
 import java.util.Random;
 
