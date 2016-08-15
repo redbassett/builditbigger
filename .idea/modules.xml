@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/builditbigger.iml" filepath="$PROJECT_DIR$/builditbigger.iml" />
       <module fileurl="file://$PROJECT_DIR$/javajester/javajester.iml" filepath="$PROJECT_DIR$/javajester/javajester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/laughactivity/laughactivity.iml" filepath="$PROJECT_DIR$/laughactivity/laughactivity.iml" />
     </modules>
   </component>
 </project>
