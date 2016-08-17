@@ -26,6 +26,7 @@ dependencies {
     compile 'com.google.appengine:appengine-endpoints:1.9.34'
     compile 'com.google.appengine:appengine-endpoints-deps:1.9.34'
     compile 'javax.servlet:servlet-api:2.5'
+    compile project(':javajester')
 }
 
 appengine {
@@ -37,4 +38,7 @@ appengine {
         getClientLibsOnBuild = true
         getDiscoveryDocsOnBuild = true
     }
+
+    // Accept outside connections
+    httpAddress="0.0.0.0"
 }

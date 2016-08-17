@@ -28,7 +28,6 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.4.0'
 
 
-    compile project(':javajester')
     compile project(':laughactivity')
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     compile project(path: ':JokeCloud', configuration: 'android-endpoints')
