@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
        new EndpointsAsyncTask().execute(this);
     }
 
-    protected class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
+    protected static class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
         private Context mContext;
 
         @Override
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Intent intent = new Intent(mContext, LaughActivity.class);
             intent.putExtra(LaughActivity.JOKE_EXTRA_KEY, result);
-            startActivity(intent);
+            mContext.startActivity(intent);
         }
     }
 }
