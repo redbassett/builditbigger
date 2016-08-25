@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mSpinner = (ProgressBar) findViewById(R.id.jokeSpinner);
-        mSpinner.setVisibility(View.INVISIBLE);
+        mSpinner.setVisibility(View.GONE);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(mContext, LaughActivity.class);
             intent.putExtra(LaughActivity.JOKE_EXTRA_KEY, result);
 
-            mContext.mSpinner.setVisibility(View.INVISIBLE);
+            mContext.mSpinner.setVisibility(View.GONE);
             mContext.startActivity(intent);
         }
     }
