@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -18,13 +19,15 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private static MyApi myApiService = null;
+    protected ProgressBar mSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mSpinner = (ProgressBar) findViewById(R.id.jokeSpinner);
+        mSpinner.setVisibility(View.INVISIBLE);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,11 +52,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view){
-       new EndpointsAsyncTask().execute(this);
+        mSpinner.setVisibility(View.VISIBLE);
+        new EndpointsAsyncTask().execute(this);
     }
 
     protected static class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
-        private Context mContext;
+        private MainActivity mContext;
 
         @Override
         protected String doInBackground(Context... params) {
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 myApiService = builder.build();
             }
 
-            mContext = params[0];
+            mContext = (MainActivity) params[0];
 
             try {
                 return myApiService.getAJoke().execute().getData();
@@ -78,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Intent intent = new Intent(mContext, LaughActivity.class);
             intent.putExtra(LaughActivity.JOKE_EXTRA_KEY, result);
+
+            mContext.mSpinner.setVisibility(View.INVISIBLE);
             mContext.startActivity(intent);
         }
     }
