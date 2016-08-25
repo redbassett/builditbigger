@@ -17,3 +17,9 @@ allprojects {
         jcenter()
     }
 }
+
+task customTestTask(dependsOn: [":JokeCloud:appengineRun",":app:connectedAndroidTest"]) {
+    tasks.getByPath(":app:connectedAndroidTest")
+            .dependsOn(":JokeCloud:appengineRun")
+    finalizedBy ":JokeCloud:appengineStop"
+}

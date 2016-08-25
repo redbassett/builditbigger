@@ -41,4 +41,6 @@ appengine {
 
     // Accept outside connections
     httpAddress="0.0.0.0"
+
+    daemon = true
 }
