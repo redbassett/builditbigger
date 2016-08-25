@@ -35,8 +35,9 @@ public class MainActivityFragment extends Fragment {
             public void onClick(View v) {
                 if (mInstersitialAd.isLoaded()) {
                     mInstersitialAd.show();
+                } else {
+                    ((MainActivity) getActivity()).tellJoke(v);
                 }
-                ((MainActivity) getActivity()).tellJoke(v);
             }
         });
 
@@ -55,6 +56,7 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onAdClosed() {
                 requestNewIntersitialAd();
+                ((MainActivity) getActivity()).tellJoke(mButton);
             }
         });
 
